@@ -1,7 +1,6 @@
 
 export interface CreateTableUseCase {
     execute: ( options: CreateTableOptions ) => string;
-
 }
 
 export interface CreateTableOptions {
@@ -11,17 +10,16 @@ export interface CreateTableOptions {
 
 
 export class CreateTable implements CreateTableUseCase {
-    
     constructor(
 
-    ){
-        
-    }
+    ){}
 
     execute({ base, limit = 10 } : CreateTableOptions){
         let message = '';
         for( let i = 1 ; i <= limit ; i++ ){
-            message += `${ base } x ${i} = ${ base * i}\n`;
+            message += `${ base } x ${i} = ${ base * i}`;
+
+            if( i < limit ) message += '\n';
         }
 
         return message;
